@@ -1,16 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
 namespace Storage.Domain
 {
     public class Product
     {
-        public Guid Id { get; set; }
+        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public string SKU { get; set; }
         public string Name { get; set; }
         public decimal Price { get; set; }
-        public Order Order { get; set; }
+        public List<OrderProduct> OrderProduct { get; set; }
         public bool IsDeleted { get; set; }
     }
 }

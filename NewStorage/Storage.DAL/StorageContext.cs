@@ -12,9 +12,28 @@ namespace Storage.DAL
         public DbSet<Product> Products { get; set; }
         public DbSet<Order> Orders { get; set; }
 
+        public List<OrderProduct> OrderProduct { get; set; }
+
         public StorageContext(DbContextOptions options) : base(options)
         {
             Database.EnsureCreated();
+        }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+
+            modelBuilder.Entity<OrderProduct>()
+            .HasKey(t => new { t.OrderId, t.ProductId });
+
+            modelBuilder.Entity<OrderProduct>()
+           .HasOne(sc => sc.Order)
+           .WithMany(s => s.OrderProduct)
+           .HasForeignKey(sc => sc.OrderId);
+
+            modelBuilder.Entity<OrderProduct>()
+           .HasOne(sc => sc.Product)
+           .WithMany(c => c.OrderProduct)
+           .HasForeignKey(sc => sc.ProductId);
         }
     }
 }

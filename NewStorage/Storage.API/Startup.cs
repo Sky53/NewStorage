@@ -26,7 +26,7 @@ namespace Storage.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<StorageContext>(options => {
-                options.UseNpgsql(Configuration["Data:DefaultConnection:ConnectionString"]);
+                options.UseNpgsql(Configuration["ConnectionString"]);
             });
         }
 

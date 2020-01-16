@@ -10,7 +10,7 @@ namespace Storage.Domain
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Number { get; set; }
         public User User { get; set; }
-        public List<Product> Products { get; set; }
+        public List<OrderProduct> OrderProduct { get; set; }
         public DateTime CreatedDate { get; set; }
         public bool IsDeleted { get; set; }
     }
