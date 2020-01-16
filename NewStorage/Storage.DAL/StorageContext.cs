@@ -23,17 +23,17 @@ namespace Storage.DAL
         {
 
             modelBuilder.Entity<OrderProduct>()
-            .HasKey(t => new { t.OrderId, t.ProductId });
+            .HasKey(t => new { t.OrderNumber, t.ProductSKU });
 
             modelBuilder.Entity<OrderProduct>()
            .HasOne(sc => sc.Order)
            .WithMany(s => s.OrderProduct)
-           .HasForeignKey(sc => sc.OrderId);
+           .HasForeignKey(sc => sc.OrderNumber);
 
             modelBuilder.Entity<OrderProduct>()
            .HasOne(sc => sc.Product)
            .WithMany(c => c.OrderProduct)
-           .HasForeignKey(sc => sc.ProductId);
+           .HasForeignKey(sc => sc.ProductSKU);
         }
     }
 }
