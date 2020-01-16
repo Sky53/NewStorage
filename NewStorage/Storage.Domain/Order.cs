@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations.Schema; 
 
 namespace Storage.Domain
 {
@@ -11,7 +11,7 @@ namespace Storage.Domain
         public int Number { get; set; }
         public User User { get; set; }
         public List<Product> Products { get; set; }
-        public DateTime DateCreated { get; set; }
+        public DateTime CreatedDate { get; set; }
         public bool IsDeleted { get; set; }
     }
 }
