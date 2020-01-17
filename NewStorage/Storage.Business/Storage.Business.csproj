@@ -9,9 +9,4 @@
     <ProjectReference Include="..\Storage.Domain\Storage.Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="repository\" />
-    <Folder Include="Services\" />
-  </ItemGroup>
-
 </Project>
