@@ -9,7 +9,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Storage.Business;
 using Storage.DAL;
+
 
 namespace Storage.API
 {
@@ -17,6 +19,7 @@ namespace Storage.API
     {
         // This method gets called by the runtime. Use this method to add services to the container.
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -28,6 +31,7 @@ namespace Storage.API
             services.AddDbContext<StorageContext>(options => {
                 options.UseNpgsql(Configuration["ConnectionString"]);
             });
+            services.AddControllers();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
