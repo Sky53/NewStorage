@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Storage.Business;
+using Storage.Domain;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,7 +19,11 @@ namespace Storage.API.Controllers
         {
             _productService = productService;
         }
-
+        [HttpGet]
+        public List<Product> GetAll()
+        {
+            return _productService.GetProducts();
+        }
         [HttpPost]
         public void AddProduct(string name, string price)
         {

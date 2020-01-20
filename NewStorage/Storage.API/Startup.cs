@@ -28,6 +28,7 @@ namespace Storage.API
             services.AddDbContext<StorageContext>(options => {
                 options.UseNpgsql(Configuration["ConnectionString"]);
             });
+            services.AddControllers();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -38,6 +39,8 @@ namespace Storage.API
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseHttpsRedirection();
+
             app.UseRouting();
 
             app.UseEndpoints(endpoints =>
@@ -47,6 +50,7 @@ namespace Storage.API
                     context.RequestServices.GetService<StorageContext>();
                     await context.Response.WriteAsync("Hello World!");
                 });
+                endpoints.MapControllers();
             });
         }
     }

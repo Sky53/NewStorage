@@ -1,4 +1,5 @@
 ﻿using Storage.DAL.Repository;
+using Storage.Domain;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -16,7 +17,11 @@ namespace Storage.Business
         public void AddProduct(string name, string price)
         {
             _productRepository.Save(name, price);
-            throw new NotImplementedException();
+        }
+
+        public List<Product> GetProducts()
+        {
+            return _productRepository.GetProducts(); ;
         }
     }
 }

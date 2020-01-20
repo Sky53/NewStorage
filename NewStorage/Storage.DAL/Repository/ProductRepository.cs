@@ -1,6 +1,8 @@
-﻿using Storage.Domain;
+﻿using Microsoft.EntityFrameworkCore;
+using Storage.Domain;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Storage.DAL.Repository
@@ -12,6 +14,12 @@ namespace Storage.DAL.Repository
         {
             _context = context;
         }
+
+        public List<Product> GetProducts()
+        {
+            return _context.Products.Include(u => u.Name).ToList();
+        }
+
         public void Save(string name, string price)
         {
             Product product = new Product();
