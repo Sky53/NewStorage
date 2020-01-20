@@ -4,7 +4,8 @@ using System.Text;
 
 namespace Storage.Business
 {
-    interface IProductService
+   public interface IProductService
     {
+        public void AddProduct(string name, string price);
     }
 }

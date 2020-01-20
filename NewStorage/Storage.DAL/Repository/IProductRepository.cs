@@ -6,5 +6,6 @@ namespace Storage.DAL.Repository
 {
     interface IProductRepository
     {
+        public void Save(string name, string price);
     }
 }

@@ -20,8 +20,9 @@ namespace Storage.API.Controllers
         }
 
         [HttpPost]
-        public void AddProduct(string name, decimal price)
+        public void AddProduct(string name, string price)
         {
+            _productService.AddProduct(name,price);
             //todo
         }
     }
