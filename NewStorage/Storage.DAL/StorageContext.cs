@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Storage.Domain;
 
 namespace Storage.DAL
@@ -21,21 +18,18 @@ namespace Storage.DAL
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
 
-            modelBuilder
-            .Entity<OrderProduct>()
-            .HasKey(t => new { t.OrderNumber, t.ProductId });
+            modelBuilder.Entity<OrderProduct>()
+                        .HasKey(t => new { t.OrderNumber, t.ProductId });
 
-            modelBuilder
-           .Entity<OrderProduct>()
-           .HasOne(sc => sc.Order)
-           .WithMany(s => s.OrderProduct)
-           .HasForeignKey(sc => sc.OrderNumber);
+            modelBuilder.Entity<OrderProduct>()
+                        .HasOne(sc => sc.Order)
+                        .WithMany(s => s.OrderProduct)
+                        .HasForeignKey(sc => sc.OrderNumber);
 
-            modelBuilder
-           .Entity<OrderProduct>()
-           .HasOne(sc => sc.Product)
-           .WithMany(c => c.OrderProduct)
-           .HasForeignKey(sc => sc.ProductId);
+            modelBuilder.Entity<OrderProduct>()
+                        .HasOne(sc => sc.Product)
+                        .WithMany(c => c.OrderProduct)
+                        .HasForeignKey(sc => sc.ProductId);
         }
     }
 }
