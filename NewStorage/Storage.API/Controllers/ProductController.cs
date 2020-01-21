@@ -25,9 +25,14 @@ namespace Storage.API.Controllers
             return _productService.GetProducts();
         }
         [HttpPost]
-        public void AddProduct(string name, string price)
+        public void AddProduct([FromQuery]Product product)
         {
-            _productService.AddProduct(name,price);
+
+            var name = product.Name;
+            var price = product.Price;
+       
+
+            _productService.AddProduct(name, price.ToString());
             //todo
         }
     }
