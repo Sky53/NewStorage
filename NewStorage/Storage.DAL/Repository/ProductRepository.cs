@@ -15,9 +15,9 @@ namespace Storage.DAL.Repository
             _context = context;
         }
 
-        public List<Product> GetProducts()
+        public IEnumerable<Product> GetProducts()
         {
-            return _context.Products.Include(u => u.Name).ToList();
+            throw new NotImplementedException();
         }
 
         public void Save(string name, string price)

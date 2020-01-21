@@ -5,10 +5,10 @@ using System.Text;
 
 namespace Storage.DAL.Repository
 {
-    interface IProductRepository
+   public interface IProductRepository
     {
         public void Save(string name, string price);
 
-        public List<Product> GetProducts();
+        public IEnumerable<Product> GetProducts();
     }
 }

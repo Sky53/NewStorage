@@ -8,7 +8,7 @@ namespace Storage.Business
 {
     public class ProductService : IProductService
     {
-        private ProductRepository _productRepository;
+        private IProductRepository _productRepository;
 
         public ProductService(ProductRepository productRepository)
         {
@@ -21,7 +21,7 @@ namespace Storage.Business
 
         public List<Product> GetProducts()
         {
-            return _productRepository.GetProducts(); ;
+            return null; 
         }
     }
 }

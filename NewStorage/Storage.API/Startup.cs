@@ -9,7 +9,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Storage.Business;
 using Storage.DAL;
+using Storage.DAL.Repository;
 
 namespace Storage.API
 {
@@ -28,7 +30,13 @@ namespace Storage.API
             services.AddDbContext<StorageContext>(options => {
                 options.UseNpgsql(Configuration["ConnectionString"]);
             });
+            services.AddTransient<IProductRepository, ProductRepository>();
+           
+            services.AddMvc();
+            services.AddScoped<IProductService, ProductService>();
             services.AddControllers();
+            
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -42,7 +50,7 @@ namespace Storage.API
             app.UseHttpsRedirection();
 
             app.UseRouting();
-
+          
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapGet("/", async context =>
