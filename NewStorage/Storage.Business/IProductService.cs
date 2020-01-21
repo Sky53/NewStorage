@@ -10,5 +10,7 @@ namespace Storage.Business
         public void AddProduct(string name, string price);
 
         public List<Product> GetProducts();
+
+        public Product GetProduct();
     }
 }

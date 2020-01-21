@@ -22,6 +22,14 @@ namespace Storage.Business
             _productRepository.Save(product);
         }
 
+        public Product GetProduct()
+        {
+            Product product = new Product();
+            product.Name = "MyName";
+            product.Price = 92.67m;
+            return product;
+        }
+
         public List<Product> GetProducts()
         {
             return new List<Product>(); 

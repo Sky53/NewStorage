@@ -20,12 +20,12 @@ namespace Storage.API.Controllers
             _productService = productService;
         }
         [HttpGet]
-        public List<Product> GetAll()
+        public Product GetAll()
         {
-            return _productService.GetProducts();
-        }
+            return _productService.GetProduct();
+        } 
         [HttpPost]
-        public void AddProduct([FromQuery]Product product)
+        public void AddProduct([FromBody]Product product)
         {
 
             var name = product.Name;
