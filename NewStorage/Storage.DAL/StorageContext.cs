@@ -22,18 +22,21 @@ namespace Storage.DAL
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
 
-            modelBuilder.Entity<OrderProduct>()
-            .HasKey(t => new { t.OrderNumber, t.ProductSKU });
+            modelBuilder
+            .Entity<OrderProduct>()
+            .HasKey(t => new { t.OrderNumber, t.ProductId });
 
-            modelBuilder.Entity<OrderProduct>()
+            modelBuilder
+           .Entity<OrderProduct>()
            .HasOne(sc => sc.Order)
            .WithMany(s => s.OrderProduct)
            .HasForeignKey(sc => sc.OrderNumber);
 
-            modelBuilder.Entity<OrderProduct>()
+            modelBuilder
+           .Entity<OrderProduct>()
            .HasOne(sc => sc.Product)
            .WithMany(c => c.OrderProduct)
-           .HasForeignKey(sc => sc.ProductSKU);
+           .HasForeignKey(sc => sc.ProductId);
         }
     }
 }
