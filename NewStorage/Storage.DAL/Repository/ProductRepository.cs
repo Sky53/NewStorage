@@ -17,16 +17,13 @@ namespace Storage.DAL.Repository
 
         public IEnumerable<Product> GetProducts()
         {
-            throw new NotImplementedException();
+            return _context.Products.ToList();
         }
 
-        public void Save(string name, string price)
+        public void Save(Product product)
         {
-            Product product = new Product();
-            product.Name = name;
-            product.Price = decimal.Parse(price);
             _context.Products.Add(product);
-
+            _context.SaveChanges();
         }
     }
 }

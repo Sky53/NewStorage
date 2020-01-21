@@ -7,7 +7,7 @@ namespace Storage.DAL.Repository
 {
    public interface IProductRepository
     {
-        public void Save(string name, string price);
+        public void Save(Product product);
 
         public IEnumerable<Product> GetProducts();
     }

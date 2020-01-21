@@ -53,11 +53,7 @@ namespace Storage.API
           
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapGet("/", async context =>
-                {
-                    context.RequestServices.GetService<StorageContext>();
-                    await context.Response.WriteAsync("Hello World!");
-                });
+                
                 endpoints.MapControllers();
             });
         }

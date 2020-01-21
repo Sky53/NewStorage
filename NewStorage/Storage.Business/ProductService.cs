@@ -10,18 +10,21 @@ namespace Storage.Business
     {
         private IProductRepository _productRepository;
 
-        public ProductService(ProductRepository productRepository)
+        public ProductService(IProductRepository productRepository)
         {
             _productRepository = productRepository;
         }
         public void AddProduct(string name, string price)
         {
-            _productRepository.Save(name, price);
+            Product product = new Product();
+            product.Name = name;
+            product.Price = decimal.Parse(price);
+            _productRepository.Save(product);
         }
 
         public List<Product> GetProducts()
         {
-            return null; 
+            return new List<Product>(); 
         }
     }
 }
