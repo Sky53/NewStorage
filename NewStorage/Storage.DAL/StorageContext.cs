@@ -23,12 +23,12 @@ namespace Storage.DAL
 
             modelBuilder.Entity<OrderProduct>()
                         .HasOne(sc => sc.Order)
-                        .WithMany(s => s.OrderProduct)
+                        .WithMany(s => s.OrderProducts)
                         .HasForeignKey(sc => sc.OrderNumber);
 
             modelBuilder.Entity<OrderProduct>()
                         .HasOne(sc => sc.Product)
-                        .WithMany(c => c.OrderProduct)
+                        .WithMany(c => c.OrderProducts)
                         .HasForeignKey(sc => sc.ProductId);
         }
     }
