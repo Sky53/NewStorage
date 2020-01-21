@@ -11,8 +11,7 @@ namespace Storage.DAL
         public DbSet<User> Users { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<Order> Orders { get; set; }
-
-        public List<OrderProduct> OrderProduct { get; set; }
+        public DbSet<OrderProduct> OrderProduct { get; set; }
 
         public StorageContext(DbContextOptions options) : base(options)
         {
