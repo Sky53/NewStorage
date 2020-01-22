@@ -14,12 +14,16 @@ namespace Storage.Business
         {
             _productRepository = productRepository;
         }
-        public void AddProduct(string name, string price)
+        public string AddProduct(Product product)
         {
-            Product product = new Product();
-            product.Name = name;
-            product.Price = decimal.Parse(price);
-            _productRepository.Save(product);
+            if (product != null) {
+                _productRepository.Save(product);
+                return "Ok, product successfully added";
+            }
+            else
+            {
+                return "unsuccessfully";
+            }
         }
 
         public Product GetProduct()

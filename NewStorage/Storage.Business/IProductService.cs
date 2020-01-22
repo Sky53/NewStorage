@@ -7,7 +7,7 @@ namespace Storage.Business
 {
    public interface IProductService
     {
-        public void AddProduct(string name, string price);
+        public string AddProduct(Product product);
 
         public List<Product> GetProducts();
 
