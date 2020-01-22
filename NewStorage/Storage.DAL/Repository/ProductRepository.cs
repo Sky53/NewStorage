@@ -9,7 +9,7 @@ namespace Storage.DAL.Repository
 {
     public class ProductRepository : IProductRepository
     {
-         private StorageContext _context;
+        private StorageContext _context;
         public ProductRepository(StorageContext context)
         {
             _context = context;

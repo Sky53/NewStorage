@@ -27,11 +27,7 @@ namespace Storage.API.Controllers
         [HttpPost]
         public string AddProduct([FromBody]Product product)
         {
-           
                return _productService.AddProduct(product);
-                //todo
-
-            
         }
     }
 }
