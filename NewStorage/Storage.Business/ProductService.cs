@@ -16,14 +16,7 @@ namespace Storage.Business
         }
         public string AddProduct(Product product)
         {
-            if (product != null) {
-                _productRepository.Save(product);
-                return "Ok, product successfully added";
-            }
-            else
-            {
-                return "unsuccessfully";
-            }
+            return _productRepository.Save(product);
         }
 
         public Product GetProduct()

@@ -9,7 +9,7 @@ namespace Storage.DAL.Repository
 {
     public class ProductRepository : IProductRepository
     {
-        private StorageContext _context;
+        private  readonly StorageContext _context;
         public ProductRepository(StorageContext context)
         {
             _context = context;
@@ -20,10 +20,17 @@ namespace Storage.DAL.Repository
             return _context.Products.ToList();
         }
 
-        public void Save(Product product)
+        public string Save(Product product)
         {
-            _context.Products.Add(product);
-            _context.SaveChanges();
+            if (product != null)
+            {
+                _context.Products.Add(product);
+                _context.SaveChanges();
+                return product.ToString();
+            } else
+            {
+                throw new NotImplementedException();
+            }
         }
     }
 }

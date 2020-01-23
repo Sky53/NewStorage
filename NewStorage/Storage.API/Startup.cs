@@ -28,7 +28,6 @@ namespace Storage.API
                 options.UseNpgsql(Configuration["ConnectionString"]);
             });
             services.AddTransient<IProductRepository, ProductRepository>();
-            services.AddMvc();
             services.AddScoped<IProductService, ProductService>();
             services.AddControllers();
             
@@ -42,8 +41,6 @@ namespace Storage.API
             {
                 app.UseDeveloperExceptionPage();
             }
-
-            app.UseHttpsRedirection();
 
             app.UseRouting();
           
