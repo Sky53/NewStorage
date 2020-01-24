@@ -30,16 +30,5 @@ namespace Storage.API.Controllers
             return await _productService.AddProductAsync(product);
         }
 
-        [HttpGet]
-        public ProductDTO GetProductDTO()
-        {
-            return new ProductDTO()
-            {
-                Name = "NameDTO",
-                SKU = "SKUDTO",
-                Price = 100.00m
-            };
-        }
-
     }
 }
