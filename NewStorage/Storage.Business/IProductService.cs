@@ -2,15 +2,13 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Storage.Business
 {
    public interface IProductService
     {
-        public string AddProduct(Product product);
+        public Task<int> AddProductAsync(Product product);
 
-        public List<Product> GetProducts();
-
-        public Product GetProduct();
     }
 }

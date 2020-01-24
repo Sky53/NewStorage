@@ -3,6 +3,7 @@ using Storage.Domain;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Storage.Business
 {
@@ -14,22 +15,11 @@ namespace Storage.Business
         {
             _productRepository = productRepository;
         }
-        public string AddProduct(Product product)
+
+        public async Task<int> AddProductAsync(Product product)
         {
-            return _productRepository.Save(product);
+            return await _productRepository.SaveAsync(product);
         }
 
-        public Product GetProduct()
-        {
-            Product product = new Product();
-            product.Name = "MyName";
-            product.Price = 92.67m;
-            return product;
-        }
-
-        public List<Product> GetProducts()
-        {
-            return new List<Product>(); 
-        }
     }
 }

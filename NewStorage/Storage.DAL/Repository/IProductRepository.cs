@@ -2,12 +2,13 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Storage.DAL.Repository
 {
    public interface IProductRepository
     {
-        public string Save(Product product);
-        public IEnumerable<Product> GetProducts();
+        public Task<int> SaveAsync(Product product);
+
     }
 }

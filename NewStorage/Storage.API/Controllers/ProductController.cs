@@ -19,16 +19,20 @@ namespace Storage.API.Controllers
             _productService = productService;
         }
 
-        [HttpGet]
-        public Product GetAll()
-        {
-            return _productService.GetProduct();
-        } 
-
         [HttpPost]
-        public string AddProduct([FromBody]Product product)
+        public async Task<int> AddProduct([FromBody]Product product)
         {
-               return _productService.AddProduct(product);
+            return await _productService.AddProductAsync(product);
+        }
+
+        [HttpGet]
+        public Product GetProduct()
+        {
+            return new Product()
+            {
+                SKU = "SKUString",
+                Price = 11.00m
+            };
         }
     }
 }
