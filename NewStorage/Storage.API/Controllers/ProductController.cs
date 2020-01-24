@@ -25,14 +25,5 @@ namespace Storage.API.Controllers
             return await _productService.AddProductAsync(product);
         }
 
-        [HttpGet]
-        public Product GetProduct()
-        {
-            return new Product()
-            {
-                SKU = "SKUString",
-                Price = 11.00m
-            };
-        }
     }
 }
