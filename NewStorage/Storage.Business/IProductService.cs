@@ -10,5 +10,11 @@ namespace Storage.Business
     {
         public Task<int> AddProductAsync(Product product);
 
+        public Task<Product> FindProductAsync(int id);
+
+        public void UpdateProdct(Product product);
+
+        public Task<int> DeleteProductAsync(int id);
+
     }
 }

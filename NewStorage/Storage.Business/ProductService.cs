@@ -18,5 +18,19 @@ namespace Storage.Business
             return await _productRepository.SaveAsync(product);
         }
 
+        public async Task<int> DeleteProductAsync(int id)
+        {
+            return await _productRepository.DeleteAsync(id);
+        }
+
+        public async Task<Product> FindProductAsync(int id)
+        {
+            return await _productRepository.FindAsync(id);
+        }
+
+        public async void UpdateProdct(Product product)
+        {
+             _productRepository.UpdateAsync(product);
+        }
     }
 }

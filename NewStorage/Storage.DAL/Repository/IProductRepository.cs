@@ -10,5 +10,11 @@ namespace Storage.DAL.Repository
     {
         public Task<int> SaveAsync(Product product);
 
+        public Task<Product> FindAsync(int id);
+
+        public void UpdateAsync(Product product);
+
+        public Task<int> DeleteAsync(int id);
+
     }
 }
