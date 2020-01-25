@@ -1,4 +1,6 @@
-﻿using Storage.DAL.Repository;
+﻿using AutoMapper;
+using Storage.Business.DTO;
+using Storage.DAL.Repository;
 using Storage.Domain;
 using System.Threading.Tasks;
 
@@ -7,14 +9,17 @@ namespace Storage.Business
     public class ProductService : IProductService
     {
         private readonly IProductRepository _productRepository;
+        private readonly IMapper _mapper;
 
-        public ProductService(IProductRepository productRepository)
+        public ProductService(IProductRepository productRepository, IMapper mapper)
         {
             _productRepository = productRepository;
+            _mapper = mapper;
         }
 
-        public async Task<int> AddProductAsync(Product product)
+        public async Task<int> AddProductAsync(ProductDTO productDTO)
         {
+            var product = _mapper.Map<Product>(productDTO);
             return await _productRepository.SaveAsync(product);
         }
 
@@ -23,13 +28,16 @@ namespace Storage.Business
             return await _productRepository.DeleteAsync(id);
         }
 
-        public async Task<Product> FindProductAsyncById(int id)
+        public async Task<ProductDTO> FindProductAsyncById(int id)
         {
-            return await _productRepository.FindByIdAsync(id);
+            var product = await _productRepository.FindByIdAsync(id);
+
+            return _mapper.Map<ProductDTO>(product);
         }
 
-        public async void UpdateProdctAsync(Product product)
+        public  void UpdateProdctAsync(ProductDTO productDTO)
         {
+            var product = _mapper.Map<Product>(productDTO);
              _productRepository.UpdateAsync(product);
         }
     }

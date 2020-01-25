@@ -12,33 +12,32 @@ namespace Storage.API.Controllers
     public class ProductController : ControllerBase
     {
         private readonly IProductService _productService;
-        private readonly IMapper _mapper;
+        //private readonly IMapper _mapper;
 
-        public ProductController(IProductService productService, IMapper mapper)
+        public ProductController(IProductService productService /*IMapper mapper*/)
         {
             _productService = productService;
-            _mapper = mapper;
+            //_mapper = mapper;
         }
 
         [HttpPost]
         public async Task<int> AddProduct([FromBody]ProductDTO  productDTO)
         {
-            var product = _mapper.Map<Product>(productDTO);
-            return await _productService.AddProductAsync(product);
+            //var product = _mapper.Map<Product>(productDTO);
+            return await _productService.AddProductAsync(productDTO);
         }
 
         [HttpGet("{id:int}")]
         public async Task<ProductDTO> GetProductById(int id)
         {
-            var product = await _productService.FindProductAsyncById(id);
-            return _mapper.Map<ProductDTO>(product);
+            return await _productService.FindProductAsyncById(id);
         }
 
         [HttpPut]
-        public async void UpdateProduct([FromBody]ProductDTO productDTO)
+        public  void UpdateProduct([FromBody]ProductDTO productDTO)
         {
-            var product = _mapper.Map<Product>(productDTO);
-            _productService.UpdateProdctAsync(product);
+ 
+            _productService.UpdateProdctAsync(productDTO);
         }
 
         [HttpDelete("{id:int}")]

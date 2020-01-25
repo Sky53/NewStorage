@@ -1,4 +1,5 @@
-﻿using Storage.Domain;
+﻿using Storage.Business.DTO;
+using Storage.Domain;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -8,11 +9,11 @@ namespace Storage.Business
 {
    public interface IProductService
     {
-        public Task<int> AddProductAsync(Product product);
+        public Task<int> AddProductAsync(ProductDTO productDTO);
 
-        public Task<Product> FindProductAsyncById(int id);
+        public Task<ProductDTO> FindProductAsyncById(int id);
 
-        public void UpdateProdctAsync(Product product);
+        public void UpdateProdctAsync(ProductDTO productDTO);
 
         public Task<int> DeleteProductAsync(int id);
 
