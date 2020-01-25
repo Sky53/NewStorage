@@ -10,7 +10,7 @@ namespace Storage.DAL.Repository
     {
         public Task<int> SaveAsync(Product product);
 
-        public Task<Product> FindAsync(int id);
+        public Task<Product> FindByIdAsync(int id);
 
         public void UpdateAsync(Product product);
 

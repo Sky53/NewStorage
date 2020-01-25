@@ -27,5 +27,24 @@ namespace Storage.API.Controllers
             return await _productService.AddProductAsync(product);
         }
 
+        [HttpGet("{id:int}")]
+        public async Task<ProductDTO> GetProductById(int id)
+        {
+            var product = await _productService.FindProductAsyncById(id);
+            return _mapper.Map<ProductDTO>(product);
+        }
+
+        [HttpPut]
+        public async void UpdateProduct([FromBody]ProductDTO productDTO)
+        {
+            var product = _mapper.Map<Product>(productDTO);
+            _productService.UpdateProdctAsync(product);
+        }
+
+        [HttpDelete("{id:int}")]
+        public async Task<int> DeleteProduct(int id)
+        {
+            return await _productService.DeleteProductAsync(id);
+        }
     }
 }

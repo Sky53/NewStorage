@@ -23,12 +23,12 @@ namespace Storage.Business
             return await _productRepository.DeleteAsync(id);
         }
 
-        public async Task<Product> FindProductAsync(int id)
+        public async Task<Product> FindProductAsyncById(int id)
         {
-            return await _productRepository.FindAsync(id);
+            return await _productRepository.FindByIdAsync(id);
         }
 
-        public async void UpdateProdct(Product product)
+        public async void UpdateProdctAsync(Product product)
         {
              _productRepository.UpdateAsync(product);
         }

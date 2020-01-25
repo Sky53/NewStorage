@@ -34,7 +34,7 @@ namespace Storage.DAL.Repository
                 throw new NotImplementedException();
             }
         }
-        public async Task<Product> FindAsync(int id)
+        public async Task<Product> FindByIdAsync(int id)
         {
             return await _context.Products.FindAsync(id);
         }
