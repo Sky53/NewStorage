@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Storage.Business;
 using Storage.Business.DTO;
 using Storage.Domain;
+using System;
 using System.Threading.Tasks;
 
 namespace Storage.API.Controllers
@@ -12,18 +13,15 @@ namespace Storage.API.Controllers
     public class ProductController : ControllerBase
     {
         private readonly IProductService _productService;
-        //private readonly IMapper _mapper;
 
-        public ProductController(IProductService productService /*IMapper mapper*/)
+        public ProductController(IProductService productService)
         {
             _productService = productService;
-            //_mapper = mapper;
         }
 
         [HttpPost]
         public async Task<int> AddProduct([FromBody]ProductDTO  productDTO)
         {
-            //var product = _mapper.Map<Product>(productDTO);
             return await _productService.AddProductAsync(productDTO);
         }
 
@@ -36,8 +34,7 @@ namespace Storage.API.Controllers
         [HttpPut]
         public  void UpdateProduct([FromBody]ProductDTO productDTO)
         {
- 
-            _productService.UpdateProdctAsync(productDTO);
+             _productService.UpdateProdctAsync(productDTO);
         }
 
         [HttpDelete("{id:int}")]
@@ -45,5 +42,7 @@ namespace Storage.API.Controllers
         {
             return await _productService.DeleteProductAsync(id);
         }
+
+        
     }
 }

@@ -10,6 +10,10 @@ namespace Storage.Business.DTO
             CreateMap<ProductDTO, Product>();
             CreateMap<Product, ProductDTO>();
 
+            CreateMap<User, UserDTO>();
+            CreateMap<UserDTO, User>();
+
+            
             
         }
     }

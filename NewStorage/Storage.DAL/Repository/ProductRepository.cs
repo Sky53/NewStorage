@@ -10,7 +10,7 @@ namespace Storage.DAL.Repository
 {
     public class ProductRepository : IProductRepository
     {
-        private  readonly StorageContext _context;
+        private readonly StorageContext _context;
 
         public ProductRepository(StorageContext context)
         {
@@ -46,7 +46,8 @@ namespace Storage.DAL.Repository
                 await _context.Products.AddAsync(product);
                 await _context.SaveChangesAsync();
                 return product.id;
-            } else
+            }
+            else
             {
                 throw new NotImplementedException();
             }

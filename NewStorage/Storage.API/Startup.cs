@@ -31,7 +31,9 @@ namespace Storage.API
 
             services.AddAutoMapper(typeof(Startup), typeof(ProductMapping));
             services.AddTransient<IProductRepository, ProductRepository>();
+            services.AddTransient<IUserRepository, UserRepository>();
             services.AddScoped<IProductService, ProductService>();
+            services.AddScoped<IUserService, UserService>();
             services.AddControllers();
             
             
