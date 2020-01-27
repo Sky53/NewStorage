@@ -1,17 +1,13 @@
-﻿using AutoMapper;
-using Microsoft.AspNetCore.Mvc;
-using Storage.Business;
-using Storage.Business.DTO;
-using Storage.Domain;
 ﻿using Microsoft.AspNetCore.Mvc;
 using Storage.Business;
 using Storage.Business.DTO;
+using Storage.Domain;
 using System.Threading.Tasks;
 
 namespace Storage.API.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("api/product")]
     public class ProductController : ControllerBase
     {
         private readonly IProductService _productService;
