@@ -11,10 +11,10 @@ namespace Storage.Business
         private readonly IProductRepository _productRepository;
         private readonly IMapper _mapper;
 
-        public ProductService(IProductRepository productRepository, IMapper mapper)
+        public async Task<int> AddProductAsync(ProductRequest productRequest)
         {
-            _productRepository = productRepository;
-            _mapper = mapper;
+            var product = _mapper.Map<Product>(productRequest);
+            return await _productRepository.SaveAsync(product);
         }
 
         public async Task<int> AddProductAsync(ProductDTO productDTO)

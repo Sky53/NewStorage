@@ -9,13 +9,12 @@ namespace Storage.Business
 {
    public interface IProductService
     {
-        public Task<int> AddProductAsync(ProductDTO productDTO);
+        public Task<int> AddProductAsync(ProductRequest productRequest);
 
         public Task<ProductDTO> FindProductAsyncById(int id);
 
         public void UpdateProdctAsync(ProductDTO productDTO);
 
         public Task<int> DeleteProductAsync(int id);
-
     }
 }

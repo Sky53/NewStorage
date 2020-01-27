@@ -10,15 +10,14 @@ namespace Storage.DAL.Repository
 {
     public class ProductRepository : IProductRepository
     {
+
         private  readonly StorageContext _context;
 
         public ProductRepository(StorageContext context)
         {
             _context = context;
         }
-        /**
-         * Искал информацию по асинхронному удалению. Есть пакет EntityFramework.Extended, нужен ли он в этой задачи?
-         */
+
         public async Task<int> DeleteAsync(int id)
         {
             var productDelete = await _context.Products.FindAsync(id);
@@ -41,18 +40,19 @@ namespace Storage.DAL.Repository
 
         public async Task<int> SaveAsync(Product product)
         {
-            if (product != null)
-            {
-                await _context.Products.AddAsync(product);
-                await _context.SaveChangesAsync();
-                return product.id;
-            } else
+            if (product == null)
             {
                 throw new NotImplementedException();
             }
+
+            await _context.Products.AddAsync(product);
+            await _context.SaveChangesAsync();
+
+            return product.id;
+
         }
 
-        public async void UpdateAsync(Product product)
+            public async void UpdateAsync(Product product)
         {
             if (product != null)
             {

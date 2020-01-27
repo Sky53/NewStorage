@@ -49,7 +49,6 @@ namespace Storage.API
           
             app.UseEndpoints(endpoints =>
             {
-                
                 endpoints.MapControllers();
             });
         }
