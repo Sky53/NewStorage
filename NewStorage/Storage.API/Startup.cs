@@ -1,11 +1,14 @@
+using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Storage.Business;
+using Storage.Business.DTO;
 using Storage.DAL;
+using Storage.DAL.Repository;
 
 namespace Storage.API
 {
@@ -25,6 +28,13 @@ namespace Storage.API
             {
                 options.UseNpgsql(Configuration["ConnectionString"]);
             });
+
+            services.AddAutoMapper(typeof(Startup), typeof(ProductMapping));
+            services.AddTransient<IProductRepository, ProductRepository>();
+            services.AddScoped<IProductService, ProductService>();
+            services.AddControllers();
+            
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -36,14 +46,10 @@ namespace Storage.API
             }
 
             app.UseRouting();
-
+          
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapGet("/", async context =>
-                {
-                    context.RequestServices.GetService<StorageContext>();
-                    await context.Response.WriteAsync("Hello World!");
-                });
+                endpoints.MapControllers();
             });
         }
     }
