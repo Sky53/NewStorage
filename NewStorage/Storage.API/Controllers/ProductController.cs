@@ -33,7 +33,6 @@ namespace Storage.API.Controllers
         public async Task<int> DeleteProduct(int id)
         {
             return await _productService.DeleteProductAsync(id);
-
         }
     }
 }
