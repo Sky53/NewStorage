@@ -22,22 +22,15 @@ namespace Storage.API.Controllers
         }
 
         [HttpPost]
-        public async Task<int> AddProduct([FromBody]ProductDTO  productDTO)
+        public async Task<int> AddProduct([FromBody]ProductRequest productRequest)
         {
-            return await _productService.AddProductAsync(productDTO);
-        }
-
-        [HttpGet("{id:int}")]
-        public async Task<ProductDTO> GetProductById(int id)
-        {
-            return await _productService.FindProductAsyncById(id);
+            return await _productService.AddProductAsync(productRequest);
         }
 
         [HttpPut]
-        public  void UpdateProduct([FromBody]ProductDTO productDTO)
+        public  void UpdateProduct([FromBody]ProductRequest productRequest)
         {
- 
-            _productService.UpdateProdctAsync(productDTO);
+            _productService.UpdateProdctAsync(productRequest);
         }
 
         [HttpDelete("{id:int}")]

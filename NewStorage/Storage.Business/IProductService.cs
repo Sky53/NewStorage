@@ -11,9 +11,9 @@ namespace Storage.Business
     {
         public Task<int> AddProductAsync(ProductRequest productRequest);
 
-        public Task<ProductDTO> FindProductAsyncById(int id);
+        public Task<ProductResponse> FindProductAsyncById(int id);
 
-        public void UpdateProdctAsync(ProductDTO productDTO);
+        public void UpdateProdctAsync(ProductRequest productRequest);
 
         public Task<int> DeleteProductAsync(int id);
     }

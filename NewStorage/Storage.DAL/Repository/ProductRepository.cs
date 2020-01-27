@@ -11,7 +11,7 @@ namespace Storage.DAL.Repository
     public class ProductRepository : IProductRepository
     {
 
-        private  readonly StorageContext _context;
+        private readonly StorageContext _context;
 
         public ProductRepository(StorageContext context)
         {
@@ -21,17 +21,16 @@ namespace Storage.DAL.Repository
         public async Task<int> DeleteAsync(int id)
         {
             var productDelete = await _context.Products.FindAsync(id);
-            if (productDelete != null)
-            {
 
-                var product = _context.Products.Remove(productDelete);
-                await _context.SaveChangesAsync();
-                return product.Entity.id;
-            }
-            else
+            if (productDelete == null)
             {
                 throw new NotImplementedException();
             }
+            var product = _context.Products.Remove(productDelete);
+            await _context.SaveChangesAsync();
+
+            return product.Entity.id;
+
         }
         public async Task<Product> FindByIdAsync(int id)
         {
@@ -49,20 +48,16 @@ namespace Storage.DAL.Repository
             await _context.SaveChangesAsync();
 
             return product.id;
-
         }
 
-            public async void UpdateAsync(Product product)
+        public async void UpdateAsync(Product product)
         {
-            if (product != null)
-            {
-                _context.Products.Update(product);
-                await _context.SaveChangesAsync();
-            }
-            else
+            if (product == null)
             {
                 throw new NotImplementedException();
             }
+            _context.Products.Update(product);
+            await _context.SaveChangesAsync();
         }
     }
 }
