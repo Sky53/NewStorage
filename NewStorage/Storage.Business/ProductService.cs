@@ -11,6 +11,12 @@ namespace Storage.Business
         private readonly IProductRepository _productRepository;
         private readonly IMapper _mapper;
 
+        public ProductService(IProductRepository productRepository, IMapper mapper)
+        {
+            _productRepository = productRepository;
+            _mapper = mapper;
+        }
+
         public async Task<int> AddProductAsync(ProductRequest productRequest)
         {
             var product = _mapper.Map<Product>(productRequest);
@@ -30,10 +36,10 @@ namespace Storage.Business
             return _mapper.Map<ProductResponse>(product);
         }
 
-        public void UpdateProdctAsync(ProductRequest productRequest)
+        public async Task<int> UpdateProdctAsync(ProductRequest productRequest)
         {
             var product = _mapper.Map<Product>(productRequest);
-            _productRepository.UpdateAsync(product);
+            return await _productRepository.UpdateAsync(product);
         }
     }
 }

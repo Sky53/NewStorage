@@ -13,7 +13,7 @@ namespace Storage.Business
 
         public Task<ProductResponse> FindProductAsyncById(int id);
 
-        public void UpdateProdctAsync(ProductRequest productRequest);
+        public Task<int> UpdateProdctAsync(ProductRequest productRequest);
 
         public Task<int> DeleteProductAsync(int id);
     }

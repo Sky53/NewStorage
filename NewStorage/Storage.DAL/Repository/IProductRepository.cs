@@ -12,7 +12,7 @@ namespace Storage.DAL.Repository
 
         public Task<Product> FindByIdAsync(int id);
 
-        public void UpdateAsync(Product product);
+        public Task<int> UpdateAsync(Product product);
 
         public Task<int> DeleteAsync(int id);
 

@@ -50,7 +50,7 @@ namespace Storage.DAL.Repository
             return product.id;
         }
 
-        public async void UpdateAsync(Product product)
+        public async Task<int> UpdateAsync(Product product)
         {
             if (product == null)
             {
@@ -58,6 +58,8 @@ namespace Storage.DAL.Repository
             }
             _context.Products.Update(product);
             await _context.SaveChangesAsync();
+
+            return product.id;
         }
     }
 }
