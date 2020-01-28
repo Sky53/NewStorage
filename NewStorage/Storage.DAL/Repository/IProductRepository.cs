@@ -9,9 +9,9 @@ namespace Storage.DAL.Repository
 
         public Task<Product> FindByIdAsync(int id);
 
-        public Task<int> UpdateAsync(Product product);
+        public Task<Product> UpdateAsync(Product product);
 
-        public Task<int> DeleteAsync(int id);
+        public Task DeleteAsync(int id);
 
     }
 }

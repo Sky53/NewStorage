@@ -16,28 +16,33 @@ namespace Storage.API.Controllers
             _productService = productService;
         }
 
-        [HttpPost]
-        public async Task<int> AddProduct([FromBody]ProductRequest productRequest)
-        {
-            return await _productService.AddProductAsync(productRequest);
-        }
-
-        [HttpPut]
-        public async Task<int> UpdateProduct([FromBody]ProductRequest productRequest)
-        {
-            return await _productService.UpdateProdctAsync(productRequest);
-        }
-
-        [HttpDelete("{id:int}")]
-        public async Task<int> DeleteProduct(int id)
-        {
-            return await _productService.DeleteProductAsync(id);
-        }
-
         [HttpGet("{id:int}")]
         public async Task<ProductResponse> GetProductById(int id)
         {
-            return await _productService.FindProductAsyncById(id);
+            return await _productService.GetyIdAsync(id);
         }
+
+        [HttpPost]
+        public async Task<int> AddProduct([FromBody]ProductRequest productRequest)
+        {
+            return await _productService.AddAsync(productRequest);
+        }
+
+        [HttpPut("{id:int}")]
+        public async Task<ProductResponse> UpdateProduct(int id, [FromBody]ProductRequest productRequest)
+        
+        {
+            return await _productService.UpdateAsync(id, productRequest);
+        }
+
+        [HttpDelete("{id:int}")]
+        public async Task<IActionResult> DeleteProduct(int id)
+        {
+            var code = await _productService.DeleteAsync(id);
+           
+            return Ok(code);
+        }
+
+        
     }
 }

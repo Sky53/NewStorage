@@ -5,12 +5,12 @@ namespace Storage.Business
 {
    public interface IProductService
     {
-        public Task<int> AddProductAsync(ProductRequest productRequest);
+        public Task<int> AddAsync(ProductRequest productRequest);
 
-        public Task<ProductResponse> FindProductAsyncById(int id);
+        public Task<ProductResponse> GetyIdAsync(int id);
 
-        public Task<int> UpdateProdctAsync(ProductRequest productRequest);
+        public Task<ProductResponse> UpdateAsync(int id, ProductRequest productRequest);
 
-        public Task<int> DeleteProductAsync(int id);
+        public Task<int> DeleteAsync(int id);
     }
 }
