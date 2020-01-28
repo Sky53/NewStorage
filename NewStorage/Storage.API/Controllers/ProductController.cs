@@ -16,7 +16,7 @@ namespace Storage.API.Controllers
             _productService = productService;
         }
 
-        [HttpGet("{id:int}")]
+        [HttpGet("{id}")]
         public async Task<ProductResponse> GetProductById(int id)
         {
             return await _productService.GetyIdAsync(id);
@@ -28,14 +28,14 @@ namespace Storage.API.Controllers
             return await _productService.AddAsync(productRequest);
         }
 
-        [HttpPut("{id:int}")]
+        [HttpPut("{id}")]
         public async Task<ProductResponse> UpdateProduct(int id, [FromBody]ProductRequest productRequest)
         
         {
             return await _productService.UpdateAsync(id, productRequest);
         }
 
-        [HttpDelete("{id:int}")]
+        [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteProduct(int id)
         {
             var code = await _productService.DeleteAsync(id);
