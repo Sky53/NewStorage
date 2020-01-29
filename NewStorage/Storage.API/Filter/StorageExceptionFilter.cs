@@ -1,11 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Microsoft.AspNetCore.Mvc.Filters;
 
 namespace Storage.API.Filter
 {
-    public class StorageExceptionFilter
+    public class StorageExceptionFilter : IExceptionFilter
     {
+        public void OnException(ExceptionContext context)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }
