@@ -2,8 +2,11 @@
 
 namespace Storage.Business.DTO
 {
-    public class ProductRequest
+    public class ProductResponse
     {
+        [Required]
+        public int Id { get; set; }
+
         [Required]
         public string SKU { get; set; }
 

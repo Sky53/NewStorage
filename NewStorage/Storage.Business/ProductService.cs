@@ -17,11 +17,33 @@ namespace Storage.Business
             _mapper = mapper;
         }
 
-        public async Task<int> AddProductAsync(ProductRequest productRequest)
+        public async Task<int> AddAsync(ProductRequest productRequest)
         {
             var product = _mapper.Map<Product>(productRequest);
+
             return await _productRepository.SaveAsync(product);
         }
 
+        public async Task DeleteAsync(int id)
+        {
+            await _productRepository.DeleteAsync(id);
+        }
+
+        public async Task<ProductResponse> GetByIdAsync(int id)
+        {
+            var product = await _productRepository.FindByIdAsync(id);
+
+            return _mapper.Map<ProductResponse>(product);
+        }
+
+        public async Task<ProductResponse> UpdateAsync(int id, ProductRequest productRequest)
+        {
+            var product = _mapper.Map<Product>(productRequest);
+            product.id = id;
+
+            await _productRepository.UpdateAsync(product);
+
+            return _mapper.Map<ProductResponse>(product);
+        }
     }
 }

@@ -1,9 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Storage.Domain;
+﻿using Storage.Domain;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Storage.DAL.Repository
@@ -17,6 +13,22 @@ namespace Storage.DAL.Repository
             _context = context;
         }
 
+        public async Task DeleteAsync(int id)
+        {
+            var productDelete = new Product()
+            {
+                id = id
+            };
+
+            _context.Products.Remove(productDelete);
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task<Product> FindByIdAsync(int id)
+        {
+            return await _context.Products.FindAsync(id);
+        }
+
         public async Task<int> SaveAsync(Product product)
         {
             if (product == null)
@@ -26,8 +38,22 @@ namespace Storage.DAL.Repository
 
             await _context.Products.AddAsync(product);
             await _context.SaveChangesAsync();
-           
+
             return product.id;
+        }
+
+        public async Task<Product> UpdateAsync(Product product)
+        {
+            if (product == null)
+            {
+                throw new NotImplementedException();
+            }
+
+            _context.Products.Update(product);
+
+            await _context.SaveChangesAsync();
+
+            return product;
         }
     }
 }

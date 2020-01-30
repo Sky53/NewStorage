@@ -1,14 +1,16 @@
 ﻿using Storage.Business.DTO;
-using Storage.Domain;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Storage.Business
 {
-   public interface IProductService
+    public interface IProductService
     {
-        public Task<int> AddProductAsync(ProductRequest productRequest);
+        public Task<int> AddAsync(ProductRequest productRequest);
+
+        public Task<ProductResponse> GetByIdAsync(int id);
+
+        public Task<ProductResponse> UpdateAsync(int id, ProductRequest productRequest);
+
+        public Task DeleteAsync(int id);
     }
 }

@@ -8,6 +8,7 @@ namespace Storage.Business.DTO
         public ProductMapping()
         {
             CreateMap<ProductRequest, Product>();
+            CreateMap<Product, ProductResponse>();
         }
     }
 }
