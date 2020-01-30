@@ -4,8 +4,7 @@ using System.Text;
 
 namespace Storage.DAL.Exception
 {
-    [Serializable]
-    class StorageException : System.Exception // По какой-то магической причине иначе Exception он не видит
+    public class StorageException : System.Exception
     {
         public StorageException()
         {

@@ -25,6 +25,7 @@ namespace Storage.API.Controllers
         [HttpPost]
         public async Task<int> AddProduct([FromBody]ProductRequest productRequest)
         {
+            throw new System.Exception();
             return await _productService.AddAsync(productRequest);
         }
 

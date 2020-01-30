@@ -49,7 +49,7 @@ namespace Storage.DAL.Repository
         {
             if (product == null)
             {
-                throw new NotImplementedException();
+                throw new StorageException();
             }
 
             _context.Products.Update(product);

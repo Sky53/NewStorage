@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Storage.API.ExceptionFilter;
 using Storage.Business;
 using Storage.Business.DTO;
 using Storage.DAL;
@@ -32,8 +33,7 @@ namespace Storage.API
             services.AddAutoMapper(typeof(Startup), typeof(ProductMapping));
             services.AddTransient<IProductRepository, ProductRepository>();
             services.AddScoped<IProductService, ProductService>();
-            services.AddControllers();
-            
+            services.AddControllers(opinols => opinols.Filters.Add<StorageExceptionFilter>());
             
         }
 
