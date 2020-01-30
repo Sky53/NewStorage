@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Storage.DAL.Exception
+﻿namespace Storage.DAL.Exception
 {
     public class StorageException : System.Exception
     {

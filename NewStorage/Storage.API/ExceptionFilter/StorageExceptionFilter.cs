@@ -14,10 +14,13 @@ namespace Storage.API.ExceptionFilter
         {
             if(context.Exception is StorageException a)
             {
-             //   throw new BadRequestResult();
-                
+                //   throw new BadResult(400);
+                context.Result = new BadRequestResult();
             }
-        //    var exp =  context.Exception .GetType();
+            else
+            {
+                context.HttpContext.Response.StatusCode = 500;
+            }
         }
     }
 }
