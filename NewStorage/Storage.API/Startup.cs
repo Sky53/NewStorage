@@ -33,8 +33,9 @@ namespace Storage.API
             services.AddAutoMapper(typeof(Startup), typeof(ProductMapping));
             services.AddTransient<IProductRepository, ProductRepository>();
             services.AddScoped<IProductService, ProductService>();
-            services.AddControllers(opinols => opinols.Filters.Add<StorageExceptionFilter>());
-            
+           // services.AddControllers(opinols => opinols.Filters.Add<StorageExceptionFilter>());
+            services.AddControllers();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -46,7 +47,7 @@ namespace Storage.API
             }
 
             app.UseRouting();
-          
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();

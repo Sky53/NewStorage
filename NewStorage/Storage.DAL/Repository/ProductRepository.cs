@@ -1,4 +1,3 @@
-﻿using Storage.DAL.Exception;
 using Storage.Domain;
 using System;
 using System.Threading.Tasks;
@@ -16,14 +15,12 @@ namespace Storage.DAL.Repository
 
         public async Task DeleteAsync(int id)
         {
-            var productDelete = await _context.Products.FindAsync(id);
-
-            if (productDelete == null)
+            var productDelete = new Product()
             {
-                throw new StorageException();
-            }
+                id = id
+            };
 
-            var product = _context.Products.Remove(productDelete);
+            _context.Products.Remove(productDelete);
             await _context.SaveChangesAsync();
         }
 
@@ -36,7 +33,7 @@ namespace Storage.DAL.Repository
         {
             if (product == null)
             {
-                throw new StorageException();
+                throw new NotImplementedException();
             }
 
             await _context.Products.AddAsync(product);
@@ -49,10 +46,11 @@ namespace Storage.DAL.Repository
         {
             if (product == null)
             {
-                throw new StorageException();
+                throw new NotImplementedException();
             }
 
             _context.Products.Update(product);
+
             await _context.SaveChangesAsync();
 
             return product;

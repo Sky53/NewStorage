@@ -24,14 +24,12 @@ namespace Storage.Business
             return await _productRepository.SaveAsync(product);
         }
 
-        public async Task<int> DeleteAsync(int id)
+        public async Task DeleteAsync(int id)
         {
-             await _productRepository.DeleteAsync(id);
-
-            return 200;
+            await _productRepository.DeleteAsync(id);
         }
 
-        public async Task<ProductResponse> GetyIdAsync(int id)
+        public async Task<ProductResponse> GetByIdAsync(int id)
         {
             var product = await _productRepository.FindByIdAsync(id);
 
@@ -42,8 +40,9 @@ namespace Storage.Business
         {
             var product = _mapper.Map<Product>(productRequest);
             product.id = id;
+
             await _productRepository.UpdateAsync(product);
-            
+
             return _mapper.Map<ProductResponse>(product);
         }
     }

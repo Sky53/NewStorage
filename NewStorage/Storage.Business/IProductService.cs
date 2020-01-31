@@ -3,14 +3,14 @@ using System.Threading.Tasks;
 
 namespace Storage.Business
 {
-   public interface IProductService
+    public interface IProductService
     {
         public Task<int> AddAsync(ProductRequest productRequest);
 
-        public Task<ProductResponse> GetyIdAsync(int id);
+        public Task<ProductResponse> GetByIdAsync(int id);
 
         public Task<ProductResponse> UpdateAsync(int id, ProductRequest productRequest);
 
-        public Task<int> DeleteAsync(int id);
+        public Task DeleteAsync(int id);
     }
 }
