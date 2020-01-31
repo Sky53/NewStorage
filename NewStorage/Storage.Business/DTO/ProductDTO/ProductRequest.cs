@@ -1,12 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Storage.Business.DTO
+namespace Storage.Business.DTO.ProductDTO
 {
-    public class ProductResponse
+    public class ProductRequest
     {
-        [Required]
-        public int Id { get; set; }
-
         [Required]
         public string SKU { get; set; }
 

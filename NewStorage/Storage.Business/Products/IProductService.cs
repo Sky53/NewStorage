@@ -1,7 +1,8 @@
 ﻿using Storage.Business.DTO;
+using Storage.Business.DTO.ProductDTO;
 using System.Threading.Tasks;
 
-namespace Storage.Business
+namespace Storage.Business.Products
 {
     public interface IProductService
     {

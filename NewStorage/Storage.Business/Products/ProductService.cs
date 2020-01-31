@@ -1,10 +1,10 @@
 ﻿using AutoMapper;
-using Storage.Business.DTO;
+using Storage.Business.DTO.ProductDTO;
 using Storage.DAL.Repository;
 using Storage.Domain;
 using System.Threading.Tasks;
 
-namespace Storage.Business
+namespace Storage.Business.Products
 {
     public class ProductService : IProductService
     {

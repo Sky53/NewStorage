@@ -1,3 +1,4 @@
+using Storage.DAL.Exception;
 using Storage.Domain;
 using System;
 using System.Threading.Tasks;
@@ -33,7 +34,7 @@ namespace Storage.DAL.Repository
         {
             if (product == null)
             {
-                throw new NotImplementedException();
+                throw new StorageException();
             }
 
             await _context.Products.AddAsync(product);
@@ -46,7 +47,7 @@ namespace Storage.DAL.Repository
         {
             if (product == null)
             {
-                throw new NotImplementedException();
+                throw new StorageException();
             }
 
             _context.Products.Update(product);

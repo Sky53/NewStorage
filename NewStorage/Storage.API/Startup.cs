@@ -8,6 +8,8 @@ using Microsoft.Extensions.Hosting;
 using Storage.API.ExceptionFilter;
 using Storage.Business;
 using Storage.Business.DTO;
+using Storage.Business.DTO.ProductDTO;
+using Storage.Business.Products;
 using Storage.DAL;
 using Storage.DAL.Repository;
 
