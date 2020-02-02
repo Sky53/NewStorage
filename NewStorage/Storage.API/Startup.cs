@@ -8,6 +8,7 @@ using Microsoft.Extensions.Hosting;
 using Storage.API.Middleware;
 using Storage.Business.DTO.ProductDTO;
 using Storage.Business.Products;
+using Storage.Business.Users;
 using Storage.DAL;
 using Storage.DAL.Repository;
 
@@ -32,7 +33,9 @@ namespace Storage.API
 
             services.AddAutoMapper(typeof(Startup), typeof(ProductMapping));
             services.AddTransient<IProductRepository, ProductRepository>();
+            services.AddTransient<IUserRepository, UserRepository>();
             services.AddScoped<IProductService, ProductService>();
+            services.AddScoped<IUserService, UserService>();
             services.AddControllers();
 
         }

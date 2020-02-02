@@ -9,7 +9,6 @@ using Storage.DAL.Exception;
 
 namespace Storage.API.Middleware
 {
-    // You may need to install the Microsoft.AspNetCore.Http.Abstractions package into your project
     public class StorageMiddleware
     {
         private readonly RequestDelegate _next;
@@ -44,7 +43,6 @@ namespace Storage.API.Middleware
         }
     }
 
-    // Extension method used to add the middleware to the HTTP request pipeline.
     public static class MiddlewareExtensions
     {
         public static IApplicationBuilder UseMiddleware(this IApplicationBuilder builder)
