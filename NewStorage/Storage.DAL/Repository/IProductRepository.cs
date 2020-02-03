@@ -12,6 +12,5 @@ namespace Storage.DAL.Repository
         public Task<Product> UpdateAsync(Product product);
 
         public Task DeleteAsync(int id);
-
     }
 }

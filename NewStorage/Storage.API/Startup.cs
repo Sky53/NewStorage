@@ -5,8 +5,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Storage.API.Middleware;
 using Storage.Business;
-using Storage.Business.DTO;
+using Storage.Business.Products;
 using Storage.DAL;
 using Storage.DAL.Repository;
 
@@ -29,7 +30,7 @@ namespace Storage.API
                 options.UseNpgsql(Configuration["ConnectionString"]);
             });
 
-            services.AddAutoMapper(typeof(Startup), typeof(ProductMapping));
+            services.AddAutoMapper(typeof(Startup), typeof(StorageMapping));
             services.AddTransient<IProductRepository, ProductRepository>();
             services.AddScoped<IProductService, ProductService>();
             services.AddControllers();
@@ -44,6 +45,7 @@ namespace Storage.API
             }
 
             app.UseRouting();
+            app.UseExceptionMiddleware();
 
             app.UseEndpoints(endpoints =>
             {

@@ -1,4 +1,5 @@
-﻿using Storage.Domain;
+using Storage.DAL.Exception;
+using Storage.Domain;
 using System;
 using System.Threading.Tasks;
 
@@ -33,7 +34,7 @@ namespace Storage.DAL.Repository
         {
             if (product == null)
             {
-                throw new NotImplementedException();
+                throw new StorageException("received an empty object");
             }
 
             await _context.Products.AddAsync(product);
@@ -46,7 +47,7 @@ namespace Storage.DAL.Repository
         {
             if (product == null)
             {
-                throw new NotImplementedException();
+                throw new StorageException("received an empty object");
             }
 
             _context.Products.Update(product);

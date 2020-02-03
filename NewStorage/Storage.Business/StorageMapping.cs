@@ -1,11 +1,12 @@
 ﻿using AutoMapper;
+using Storage.Business.Products.DTO;
 using Storage.Domain;
 
-namespace Storage.Business.DTO
+namespace Storage.Business
 {
-    public class ProductMapping : Profile
+    public class StorageMapping : Profile
     {
-        public ProductMapping()
+        public StorageMapping()
         {
             CreateMap<ProductRequest, Product>();
             CreateMap<Product, ProductResponse>();
