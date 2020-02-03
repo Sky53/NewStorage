@@ -22,26 +22,20 @@ namespace Storage.API.Middleware
             }
             catch (StorageException exp)
             {
-                await HandleException(httpContext, exp, StatusCodes.Status400BadRequest);
+                await HandleException(httpContext, "BadReauest ", StatusCodes.Status400BadRequest);
             }
             catch (Exception exp)
             {
-                await HandleException(httpContext, exp, StatusCodes.Status500InternalServerError);
+                await HandleException(httpContext, "Internal Server Error ", StatusCodes.Status500InternalServerError);
             }
         }
 
-        private async Task HandleException(HttpContext httpContext, Exception exp, int statusCode)
+        private async Task HandleException(HttpContext httpContext, string message, int statusCode)
         {
             httpContext.Response.Clear();
             httpContext.Response.StatusCode = statusCode;
-            if (statusCode == 400)
-            {
-                await httpContext.Response.WriteAsync(exp.Message);
-            }
-            else
-            {
-                await httpContext.Response.WriteAsync("Internal Server Error");
-            }
+
+            await httpContext.Response.WriteAsync(message + statusCode);
         }
     }
 }

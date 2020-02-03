@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Storage.Business.Products.DTO;
+using Storage.Business.Users.DTO;
 using Storage.Domain;
 
 namespace Storage.Business
@@ -10,6 +11,9 @@ namespace Storage.Business
         {
             CreateMap<ProductRequest, Product>();
             CreateMap<Product, ProductResponse>();
+
+            CreateMap<UserRequest, User>();
+            CreateMap<User, UserResponse>();
         }
     }
 }
