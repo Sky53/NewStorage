@@ -31,7 +31,7 @@ namespace Storage.Business.Products
             await _productRepository.DeleteAsync(id);
         }
 
-        public async Task<List<ProductResponse>> GetAll()
+        public async Task<List<ProductResponse>> GetAllAsync()
         {
             var products = await _productRepository.GetAllProducts();
 

@@ -15,12 +15,10 @@ namespace Storage.API.Controllers
     public class ProductController : ControllerBase
     {
         private readonly IProductService _productService;
-        private readonly ILogger<ProductController> _logger;
 
-        public ProductController(IProductService productService, ILogger<ProductController> logger)
+        public ProductController(IProductService productService)
         {
             _productService = productService;
-            _logger = logger;
         }
 
         [HttpGet("{id}")]
@@ -32,7 +30,7 @@ namespace Storage.API.Controllers
         [HttpGet]
         public async Task<List<ProductResponse>> GetList()
         {
-            return await _productService.GetAll();
+            return await _productService.GetAllAsync();
         }
 
         [HttpPost]

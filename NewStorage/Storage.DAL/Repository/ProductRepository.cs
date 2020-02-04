@@ -43,7 +43,7 @@ namespace Storage.DAL.Repository
         {
             if (product == null)
             {
-                throw new StorageException("received an empty object");
+                throw new StorageException("received an empty product");
             }
 
             await _context.Products.AddAsync(product);
@@ -56,7 +56,7 @@ namespace Storage.DAL.Repository
         {
             if (product == null)
             {
-                throw new StorageException("received an empty object");
+                throw new StorageException("received an empty product");
             }
 
             _context.Products.Update(product);
