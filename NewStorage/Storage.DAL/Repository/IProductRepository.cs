@@ -1,10 +1,14 @@
 ﻿using Storage.Domain;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace Storage.DAL.Repository
 {
    public interface IProductRepository
     {
+        public List<Product> GetProducts();
+
         public Task<int> SaveAsync(Product product);
 
         public Task<Product> FindByIdAsync(int id);

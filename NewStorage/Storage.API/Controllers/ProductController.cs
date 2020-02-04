@@ -1,8 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using Storage.Business.Products;
 using Storage.Business.Products.DTO;
 using Storage.DAL.Exception;
+using Storage.Domain;
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace Storage.API.Controllers
@@ -12,16 +15,24 @@ namespace Storage.API.Controllers
     public class ProductController : ControllerBase
     {
         private readonly IProductService _productService;
+        private readonly ILogger<ProductController> _logger;
 
-        public ProductController(IProductService productService)
+        public ProductController(IProductService productService, ILogger<ProductController> logger)
         {
             _productService = productService;
+            _logger = logger;
         }
 
         [HttpGet("{id}")]
         public async Task<ProductResponse> GetProductById(int id)
         {
             return await _productService.GetByIdAsync(id);
+        }
+
+        [HttpGet]
+        public List<Product> GetList()
+        {
+            return _productService.GetAll();
         }
 
         [HttpPost]

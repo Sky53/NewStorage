@@ -2,6 +2,7 @@
 using Storage.Business.Products.DTO;
 using Storage.DAL.Repository;
 using Storage.Domain;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace Storage.Business.Products
@@ -27,6 +28,11 @@ namespace Storage.Business.Products
         public async Task DeleteAsync(int id)
         {
             await _productRepository.DeleteAsync(id);
+        }
+
+        public List<Product> GetAll()
+        {
+            return _productRepository.GetProducts();
         }
 
         public async Task<ProductResponse> GetByIdAsync(int id)
