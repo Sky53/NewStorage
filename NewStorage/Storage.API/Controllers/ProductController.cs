@@ -30,9 +30,9 @@ namespace Storage.API.Controllers
         }
 
         [HttpGet]
-        public List<Product> GetList()
+        public async Task<List<ProductResponse>> GetList()
         {
-            return _productService.GetAll();
+            return await _productService.GetAll();
         }
 
         [HttpPost]

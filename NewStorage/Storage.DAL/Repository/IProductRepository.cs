@@ -7,7 +7,7 @@ namespace Storage.DAL.Repository
 {
    public interface IProductRepository
     {
-        public List<Product> GetProducts();
+        public Task<List<Product>> GetAllProducts();
 
         public Task<int> SaveAsync(Product product);
 

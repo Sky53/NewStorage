@@ -3,6 +3,7 @@ using Storage.Business.Products.DTO;
 using Storage.DAL.Repository;
 using Storage.Domain;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace Storage.Business.Products
@@ -30,9 +31,11 @@ namespace Storage.Business.Products
             await _productRepository.DeleteAsync(id);
         }
 
-        public List<Product> GetAll()
+        public async Task<List<ProductResponse>> GetAll()
         {
-            return _productRepository.GetProducts();
+            var products = await _productRepository.GetAllProducts();
+
+            return _mapper.Map<List<ProductResponse>>(products);
         }
 
         public async Task<ProductResponse> GetByIdAsync(int id)

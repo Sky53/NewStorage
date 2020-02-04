@@ -1,3 +1,4 @@
+using Microsoft.EntityFrameworkCore;
 using Storage.DAL.Exception;
 using Storage.Domain;
 using System;
@@ -32,10 +33,11 @@ namespace Storage.DAL.Repository
             return await _context.Products.FindAsync(id);
         }
 
-        public  List<Product> GetProducts()
+        public Task<List<Product>> GetAllProducts()
         {
-            return  _context.Products.ToList();
+            return _context.Products.ToListAsync();
         }
+
 
         public async Task<int> SaveAsync(Product product)
         {

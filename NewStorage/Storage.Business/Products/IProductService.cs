@@ -7,7 +7,7 @@ namespace Storage.Business.Products
 {
     public interface IProductService
     {
-        public List<Product> GetAll();
+        public Task<List<ProductResponse>> GetAll();
 
         public Task<int> AddAsync(ProductRequest productRequest);
 
