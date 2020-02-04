@@ -1,7 +1,7 @@
 ﻿using Storage.Domain;
 using System.Threading.Tasks;
 
-namespace Storage.DAL.Repository
+namespace Storage.DAL.Products
 {
    public interface IProductRepository
     {

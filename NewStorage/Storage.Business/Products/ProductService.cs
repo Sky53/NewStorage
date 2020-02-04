@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using Storage.Business.Products.DTO;
-using Storage.DAL.Repository;
+using Storage.DAL.Products;
 using Storage.Domain;
 using System.Threading.Tasks;
 

@@ -2,7 +2,7 @@
 using Storage.Domain;
 using System.Threading.Tasks;
 
-namespace Storage.DAL.Repository
+namespace Storage.DAL.Users
 {
     public class UserRepository : IUserRepository
     {
@@ -55,7 +55,6 @@ namespace Storage.DAL.Repository
             await _context.SaveChangesAsync();
 
             return user;
-
         }
     }
 }

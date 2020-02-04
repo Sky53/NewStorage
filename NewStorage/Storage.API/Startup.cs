@@ -10,7 +10,8 @@ using Storage.Business;
 using Storage.Business.Products;
 using Storage.Business.Users;
 using Storage.DAL;
-using Storage.DAL.Repository;
+using Storage.DAL.Products;
+using Storage.DAL.Users;
 
 namespace Storage.API
 {

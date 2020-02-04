@@ -1,10 +1,7 @@
 ﻿using AutoMapper;
 using Storage.Business.Users.DTO;
-using Storage.DAL.Repository;
+using Storage.DAL.Users;
 using Storage.Domain;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Storage.Business.Users

@@ -1,9 +1,9 @@
 using Storage.DAL.Exception;
+using Storage.DAL.Products;
 using Storage.Domain;
-using System;
 using System.Threading.Tasks;
 
-namespace Storage.DAL.Repository
+namespace Storage.DAL.Users
 {
     public class ProductRepository : IProductRepository
     {
