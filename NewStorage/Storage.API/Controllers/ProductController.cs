@@ -1,10 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 using Storage.Business.Products;
 using Storage.Business.Products.DTO;
-using Storage.DAL.Exception;
-using Storage.Domain;
-using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
