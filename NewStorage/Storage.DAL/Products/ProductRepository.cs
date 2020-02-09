@@ -3,7 +3,7 @@ using Storage.DAL.Products;
 using Storage.Domain;
 using System.Threading.Tasks;
 
-namespace Storage.DAL.Users
+namespace Storage.DAL.Products
 {
     public class ProductRepository : IProductRepository
     {

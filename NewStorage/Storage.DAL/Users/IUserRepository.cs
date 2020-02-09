@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Storage.DAL.Users
+namespace Storage.DAL.Products
 {
     public interface IUserRepository
     {

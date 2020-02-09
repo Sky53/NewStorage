@@ -11,7 +11,7 @@ using Storage.Business.Products;
 using Storage.Business.Users;
 using Storage.DAL;
 using Storage.DAL.Products;
-using Storage.DAL.Users;
+using Storage.DAL.Products;
 
 namespace Storage.API
 {

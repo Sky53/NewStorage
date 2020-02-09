@@ -2,7 +2,7 @@
 using Storage.Domain;
 using System.Threading.Tasks;
 
-namespace Storage.DAL.Users
+namespace Storage.DAL.Products
 {
     public class UserRepository : IUserRepository
     {
@@ -21,7 +21,6 @@ namespace Storage.DAL.Users
             };
 
             _context.Users.Remove(user);
-            var userDelete = await _context.Users.FindAsync(id);
             await _context.SaveChangesAsync();
         }
 
@@ -35,7 +34,7 @@ namespace Storage.DAL.Users
         {
             if (user == null)
             {
-                throw new StorageException("received an empty object");
+                throw new StorageException("Can't save an empty user");
             }
 
             await _context.Users.AddAsync(user);
@@ -48,7 +47,7 @@ namespace Storage.DAL.Users
         {
             if (user == null)
             {
-                throw new StorageException("received an empty object");
+                throw new StorageException("Can't save an empty user");
             }
 
             _context.Users.Update(user);
