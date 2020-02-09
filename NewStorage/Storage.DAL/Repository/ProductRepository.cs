@@ -36,7 +36,6 @@ namespace Storage.DAL.Repository
             return _context.Products.ToListAsync();
         }
 
-
         public async Task<int> SaveAsync(Product product)
         {
             if (product == null)

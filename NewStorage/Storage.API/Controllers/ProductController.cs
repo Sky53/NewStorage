@@ -23,8 +23,8 @@ namespace Storage.API.Controllers
             return await _productService.GetByIdAsync(id);
         }
 
-        [HttpGet]
-        public async Task<List<ProductResponse>> GetList()
+        [HttpGet("All")]
+        public async Task<List<ProductResponse>> GetAllProducts()
         {
             return await _productService.GetAllAsync();
         }
